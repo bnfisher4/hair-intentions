@@ -1,8 +1,23 @@
 const Product = require('../models/product')
 
 module.exports = {
-    index
+    index,
+    new: newProduct,
+    create
 };
+
+function create(req, res) {
+    const product = new Product(req.body);
+    product.save(function (err) {
+        if (err) return res.redirect('/products.new');
+        console.log(product);
+        res.redirect('/products/new');
+    });
+}
+
+function newProduct(req, res) {
+    res.render('products/new');
+}
 
 function index(req, res) {
     Product.find({}, function (err, products) {
