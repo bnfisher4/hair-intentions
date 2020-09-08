@@ -9,6 +9,22 @@
 
 <body>
     <h1>Products</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Kind</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(function(p) { %>
+            <tr>
+                <td><%= p.brand %></td>
+                <td><%= p.kind %></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
 </body>
 
 </html>
