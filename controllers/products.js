@@ -3,8 +3,18 @@ const Product = require('../models/product')
 module.exports = {
     index,
     new: newProduct,
-    create
+    create,
+    show
 };
+
+function show(req, res) {
+    Product.findById(req.params.id, function (err, products) {
+        res.render('products/show', {
+            user: req.user,
+            title: 'Product Details'
+        });
+    })
+}
 
 function create(req, res) {
     const product = new Product(req.body);
@@ -16,12 +26,16 @@ function create(req, res) {
 }
 
 function newProduct(req, res) {
-    res.render('products/new');
+    res.render('products/new', {
+        user: req.user,
+        title: 'Add A Product'
+    });
 }
 
 function index(req, res) {
     Product.find({}, function (err, products) {
         res.render('products/index', {
+            user: req.user,
             title: 'Products', products
         });
     });

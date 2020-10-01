@@ -1,37 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
+<%- include('../partials/header') %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hair Products</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-</head>
-
-<body>
-    <h2>Add a Product</h2>
-    <form action="/products" method="POST">
-        <label>Brand Name:</label>
-        <input type="text" name="brand"><br>
-        <label>Kind:</label>
-        <select name="kind">
-            <option value="Shampoo">Shampoo</option>
-            <option value="Conditioner">Conditioner</option>
-            <option value="Leave-in Conditioner">Leave-in Conditioner</option>
-            <option value="Co-wash">Co-wash</option>
-            <option value="Curl Activator">Curl Activator</option>
-            <option value="Moisturizer">Moisturizer</option>
-            <option value="Oil">Oil</option>
-            <option value="Gel">Gel</option>
-            <option value="Hair Mask">Hair Mask</option>
-            <option value="Mousse">Mousse</option>
-            <option value="HairSpray">HairSpray</option>
-            <option value="Hair Butter">Hair Butter</option>
-        </select><br>
-        <label>Description:</label>
-        <input type="text" name="description"><br>
-        <input type="submit" value="Add Product">
-    </form>
-</body>
-
-</html>
+<form action="/products" method="POST" enctype="multipart/form-data">
+    <label>Photo:</label>
+    <input type="file" accept="image/*" name="img"><br>
+    <label>Brand Name:</label>
+    <input type="text" name="brand"><br>
+    <label>Kind:</label>
+    <select name="kind">
+        <option value="Shampoo">Shampoo</option>
+        <option value="Conditioner">Conditioner</option>
+        <option value="Leave-in Conditioner">Leave-in Conditioner</option>
+        <option value="Co-wash">Co-wash</option>
+        <option value="Curl Activator">Curl Activator</option>
+        <option value="Moisturizer">Moisturizer</option>
+        <option value="Oil">Oil</option>
+        <option value="Gel">Gel</option>
+        <option value="Hair Mask">Hair Mask</option>
+        <option value="Mousse">Mousse</option>
+        <option value="HairSpray">HairSpray</option>
+        <option value="Hair Butter">Hair Butter</option>
+    </select><br>
+    <label>Description:</label>
+    <input type="text" name="description"><br>
+    <input type="submit" value="Add Product">
+</form>
+<%- include('../partials/footer') %>
