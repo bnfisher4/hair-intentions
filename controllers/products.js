@@ -8,10 +8,11 @@ module.exports = {
 };
 
 function show(req, res) {
-    Product.findById(req.params.id, function (err, products) {
+    Product.findById(req.params.id, function (err, product) {
         res.render('products/show', {
-            user: req.user,
-            title: 'Product Details'
+            title: 'Product Details',
+            product,
+            user: req.user
         });
     })
 }
